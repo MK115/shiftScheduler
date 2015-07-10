@@ -4,8 +4,58 @@
    <meta charset="utf-8">
    <link rel="stylesheet" href="style/style.css">
 
+
+   </script>
  </head>
  <body>
+   <table border="1">
+     <tr id="days">
+       <th>Montag </th>
+       <th >Dienstag</th>
+       <th>Mittwoch</th>
+       <th>Donnerstag</th>
+       <th>Freitag</th>
+       <th>Samstag</th>
+       <th>Sontag</th>
+     </tr>
+     <tr>
+      <td>
+        <input type="text"><br>
+        <input type="time"> - <input type="time">
+      </td>
+      <td>
+        <input type="text"><br>
+        <input type="time"> - <input type="time">
+      </td>
+      <td>
+        <input type="text"><br>
+        <input type="time"> - <input type="time">
+      </td>
+      <td>
+        <input type="text"><br>
+        <input type="time"> - <input type="time">
+      </td>
+      <td>
+        <input type="text"><br>
+        <input type="time"> - <input type="time">
+      </td>
+      <td>
+        <input type="text"><br>
+        <input type="time"> - <input type="time">
+      </td>
+      <td>
+        <input type="text"><br>
+        <input type="time"> - <input type="time">
+      </td>
+
+    </tr>
+   </table>
+
+   <script>
+   var d = new Date();
+   document.getElementById("days").appendChild("<th>"+d.getTime()+"</th>");
+
+   </script>
 
  </body>
 </html>
