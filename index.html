@@ -8,50 +8,64 @@
  <body>
    <table border="1">
      <tr id="days">
-       <th>Montag </th>
-       <th >Dienstag</th>
-       <th>Mittwoch</th>
-       <th>Donnerstag</th>
-       <th>Freitag</th>
-       <th>Samstag</th>
-       <th>Sontag</th>
+
      </tr>
      <tr>
       <td>
-        <input type="text"><br>
+        <input type="number"><br>
         <input type="time"> - <input type="time">
       </td>
       <td>
-        <input type="text"><br>
+        <input type="number"><br>
         <input type="time"> - <input type="time">
       </td>
       <td>
-        <input type="text"><br>
+        <input type="number"><br>
         <input type="time"> - <input type="time">
       </td>
       <td>
-        <input type="text"><br>
+        <input type="number"><br>
         <input type="time"> - <input type="time">
       </td>
       <td>
-        <input type="text"><br>
+        <input type="number"><br>
         <input type="time"> - <input type="time">
       </td>
       <td>
-        <input type="text"><br>
+        <input type="number"><br>
         <input type="time"> - <input type="time">
       </td>
       <td>
-        <input type="text"><br>
+        <input type="number"><br>
         <input type="time"> - <input type="time">
       </td>
-
     </tr>
    </table>
 
    <script>
-   var d = new Date();
-   document.getElementById("days").innerText("<th>"+ d.getDay()+"</th>");
+       //-------------getWeekNumber----------------------begin
+       Date.prototype.getWeekNumber = function(){
+           var d = new Date(+this);
+           d.setHours(0,0,0);
+           d.setDate(d.getDate()+4-(d.getDay()||7));
+           return Math.ceil((((d-new Date(d.getFullYear(),0,1))/8.64e7)+1)/7);
+       };
+       //-------------getWeekNumber----------------------end
+
+       var weekdays = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch",
+                               "Donnerstag", "Freitag", "Samstag");
+       var d = new Date();
+
+       var headTable = document.getElementById('days');
+       var node = document.createElement('TH');
+
+
+
+       for(var i = 0; i<weekdays.length; i++) {
+        headTable.innerHTML = headTable.innerHTML + "<th>"+weekdays[i]+"</th>";
+       }
+
+
 
    </script>
 
