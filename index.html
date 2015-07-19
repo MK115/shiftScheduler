@@ -5,7 +5,7 @@
    <link rel="stylesheet" href="style/style.css">
 
  </head>
- <body>
+ <body onload="createTable()">
    <table border="1">
      <tr id="days">
 
@@ -41,8 +41,10 @@
       </td>
     </tr>
    </table>
-
+<button onclick="getNextWeek()" type="button" id="nextWeek"> next week >> </button>
+   <div id="output"></div>
    <script>
+
        //-------------getWeekNumber----------------------begin
        Date.prototype.getWeekNumber = function(){
            var d = new Date(+this);
@@ -52,21 +54,27 @@
        };
        //-------------getWeekNumber----------------------end
 
-       var weekdays = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch",
-                               "Donnerstag", "Freitag", "Samstag");
-       var d = new Date();
+       //-------------nextWeek---------------------------begin
+       function getNextWeek(){
 
-       var headTable = document.getElementById('days');
-       var node = document.createElement('TH');
-
-
-
-       for(var i = 0; i<weekdays.length; i++) {
-        headTable.innerHTML = headTable.innerHTML + "<th>"+weekdays[i]+"</th>";
+           currentWeek = currentWeek +1;
+           alert(currentWeek)
        }
+       //-------------nextWeek---------------------------end
 
+       //-------------createTable------------------------begin
+       function createTable(){
+           var weekdays = ["Sonntag", "Montag", "Dienstag", "Mittwoch",
+                   "Donnerstag", "Freitag", "Samstag"];
 
-
+           var headTable = document.getElementById('days');
+           for(var i = 0; i<weekdays.length; i++) {
+               headTable.innerHTML = headTable.innerHTML + "<th>"+weekdays[i]+"</th>";
+           }
+       }
+       //-------------createTable------------------------end
+       var date = new Date();
+       var currentWeek = date.getWeekNumber();
    </script>
 
  </body>
